@@ -10,4 +10,19 @@
 <body>
   <app-root></app-root>
 </body>
+  <!-- Do not touch the code below -->
+  <script type="text/javascript">
+    window.addEventListener("message", (event) => {
+      if (
+        event.origin !== "http://localhost:4200" ||
+        event.origin.includes("cloudcoding.fr")
+      )
+        return;
+
+      setInterval(() => {
+        event.source.postMessage(window.location.href, "http://localhost:4200");
+      }, 2000);
+      event.source.postMessage(window.location.href, "http://localhost:4200");
+    });
+  </script>
 </html>
