@@ -12,17 +12,18 @@
 </body>
   <!-- Do not touch the code below -->
   <script type="text/javascript">
+    document.body.addEventListener('click', (event) => {
+        
+        window.parent.postMessage(window.location.href, "*");
+    });
     window.addEventListener("message", (event) => {
       if (
-        event.origin !== "http://localhost:4200" ||
-        event.origin.includes("cloudcoding.fr")
+        event.origin !== "http://localhost:4200" &&
+        !event.origin.includes("cloudcoding.fr")
       )
         return;
 
-      setInterval(() => {
-        event.source.postMessage(window.location.href, "http://localhost:4200");
-      }, 2000);
-      event.source.postMessage(window.location.href, "http://localhost:4200");
+      event.source.postMessage(window.location.href, "*");
     });
   </script>
 </html>
