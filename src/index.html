@@ -13,8 +13,8 @@
   <!-- Do not touch the code below -->
   <script type="text/javascript">
     document.body.addEventListener('click', (event) => {
-        
-        window.parent.postMessage(window.location.href, "*");
+
+      window.parent.postMessage(window.location.href, "*");
     });
     window.addEventListener("message", (event) => {
       if (
